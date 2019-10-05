@@ -1,0 +1,18 @@
+.answer {
+  color: #222;
+  text-transform: uppercase;
+  margin: 0;
+  position: absolute;
+  top: 38%;
+  left: 46%;
+  width: 11%;
+  font-size: 80%;
+}
+
+.ball {
+  position: relative;
+}
+.ball img {
+  width: 100%;
+  max-width: 40em;
+}

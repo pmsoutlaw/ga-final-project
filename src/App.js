@@ -1,26 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import ReactDOM from "react-dom";
+import { Link, BrowserRouter, Route, Switch } from "react-router-dom";
+import Homepage from "./views/Homepage";
+import About from "./views/About";
+import Placeholder from "./components/Placeholder";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import "./styles.css";
+
+class App extends React.Component {
+  render() {
+    return (
+      <div className="App">
+        {/* <Placeholder label="Nav Menu"> */}
+        <Link to="/"> Homepage | </Link>
+        <Link to="/about"> About </Link>
+        {/* </Placeholder> */}
+        <Switch>
+          <Route path="/" exact component={Homepage} />
+          <Route path="/about" exact component={About} />
+        </Switch>
+      </div>
+    );
+  }
 }
 
-export default App;
+export default () => (
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>
+);
