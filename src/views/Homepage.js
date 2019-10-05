@@ -33,7 +33,7 @@ class Homepage extends React.Component {
         <h1>Ask Me A Question</h1>
         {/* <Placeholder label="Question Form"> */}
         <form onSubmit={this.askQuestion}>
-          <textarea cols="100" type="text" name="label" id="label" />
+          <textarea className="textBox" cols="100" />
           <br></br>
           <button
             onClick={() => {

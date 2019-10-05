@@ -4,7 +4,7 @@ const wrapperStyles = {
   display: "block",
   padding: "24px 10px",
   margin: "10px",
-  border: "1px dashed lightblue",
+  border: "1px solid lightblue",
   position: "relative",
   boxSizing: "border-box",
   minHeight: "60px"

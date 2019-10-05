@@ -1,17 +1,12 @@
 import React from "react";
 import Placeholder from "../components/Placeholder";
+import "../styles.css";
 
 class About extends React.Component {
   render() {
     return (
-      <Placeholder label="About View">
-        <h2>Some Random Magic 8 Ball Stuff</h2>
-        <Placeholder label="Bio">
-          <p>
-            Lovingly developed by Pam Rimel during General Assembly 1 week React
-            bootcamp - October 2019.
-          </p>
-        </Placeholder>
+      <div>
+        <h1>Some Random Magic 8 Ball Stuff</h1>
         <Placeholder label="Links" description="wiki, where to buy etc">
           <ul>
             <li>
@@ -29,7 +24,13 @@ class About extends React.Component {
             </li>
           </ul>
         </Placeholder>
-      </Placeholder>
+        <Placeholder label="Bio">
+          <p>
+            Lovingly developed by Pam Rimel during General Assembly 1 week React
+            bootcamp - October 2019.
+          </p>
+        </Placeholder>
+      </div>
     );
   }
 }
