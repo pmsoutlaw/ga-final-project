@@ -7,7 +7,7 @@
   animation: shake 0.5s;
 }
 
-button {
+.submitButton {
   font-family: "Montserrat", sans-serif;
   font-size: 20px;
   color: #f8f8f8;

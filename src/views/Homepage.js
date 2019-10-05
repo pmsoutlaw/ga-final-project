@@ -1,23 +1,28 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import Placeholder from "../components/Placeholder";
 import Answer from "../components/Answer";
 import answers from "../answers.json";
+import "../styles.css";
 
 class Homepage extends React.Component {
   state = {
-    questions: [],
+    question: "",
     answer: "",
     shake: false
   };
 
   askQuestion = e => {
     e.preventDefault();
-    console.log(e.target.querySelector("textarea").value);
     this.setState({
-      questions: e.target.querySelector("textarea").value,
-      answer: this.getRandomAnswer()
+      question: e.target.querySelector("textarea").value,
+      shake: true
     });
+    setTimeout(() => {
+      this.state.question
+        ? this.setState({ answer: this.getRandomAnswer() })
+        : this.setState({ answer: "Question Unclear" });
+    }, 300);
+    setTimeout(() => this.setState({ shake: false }), 1000);
+    e.target.querySelector("textarea").value = "";
   };
 
   getRandomAnswer = () => {
@@ -29,30 +34,13 @@ class Homepage extends React.Component {
   render() {
     return (
       <div>
-        {/* <Placeholder label="Homepage View"> */}
         <h1>Ask Me A Question</h1>
-        {/* <Placeholder label="Question Form"> */}
         <form onSubmit={this.askQuestion}>
           <textarea className="textBox" cols="100" />
           <br></br>
-          <button
-            onClick={() => {
-              this.setState({
-                shake: true
-              });
-              setTimeout(() => this.setState({ shake: false }), 1000);
-            }}
-            type="submit"
-          >
-            It's Magic!
-          </button>
+          <input className="submitButton" type="submit" value="Its Magic!" />
         </form>
-        {/* </Placeholder> */}
-        {/* <Placeholder label="Eight Ball"> */}
         <Answer value={this.state.answer} shake={this.state.shake} />
-        {/* </Placeholder> */}
-        {/* <Placeholder label="My Questions"></Placeholder> */}
-        {/* </Placeholder> */}
       </div>
     );
   }
